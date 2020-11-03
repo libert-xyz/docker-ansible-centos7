@@ -39,3 +39,5 @@ platforms:
 This container is only intented to use to test Ansible Roles and Playbooks not intended for production use.
 
 ## Author
+
+Libert R Schmidt - 2020
