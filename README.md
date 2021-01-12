@@ -2,6 +2,7 @@
 
 [![Docker Automated build](https://img.shields.io/docker/automated/libertxyz/docker-ansible-centos7.svg?maxAge=2592000)](https://hub.docker.com/r/libertxyz/docker-ansible-centos7)
 
+[![CI](https://github.com/libert-xyz/docker-ansible-centos7/workflows/Build/badge.svg?branch=master&event=push)](https://github.com/libert-xyz/docker-ansible-centos7/actions?query=workflow%3ABuild)
 
 
 [![Build Status](https://travis-ci.com/libert-xyz/docker-ansible-centos7.svg?branch=master)](https://travis-ci.com/libert-xyz/docker-ansible-centos7)
@@ -16,7 +17,7 @@
 
   2. Run a container from the image:
 
-  `docker run -d --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro --volume=`pwd`:/etc/ansible/roles/role_under_test:ro libertxyz/docker-ansible-centos7`
+  ```docker run -d --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro --volume=`pwd`:/etc/ansible/roles/role_under_test:ro libertxyz/docker-ansible-centos7```
 
 ## Molecule Testing
 
@@ -32,6 +33,11 @@ platforms:
       - /tmp
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: True
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
 ```
 
 ## Notes
